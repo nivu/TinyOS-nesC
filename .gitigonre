@@ -1,7 +1,11 @@
 *
 !.gitignore
 
+.*
+!/.gitignore
+
 **/build/*
+build/
 
 *.[oa]
 *~
