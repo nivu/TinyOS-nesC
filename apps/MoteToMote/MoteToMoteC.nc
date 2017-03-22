@@ -93,10 +93,13 @@ implementation
 	    	if(data == 1)
 	    	{
 	    		call Leds.led1On();
+	    		call Leds.led2On();
+
 	    	}
 	    	if(data ==0)
 	    	{
 	    		call Leds.led1Off();
+	    		call Leds.led2Off();
 	    	}	
 	    }
         return msg;
