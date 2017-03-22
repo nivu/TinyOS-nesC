@@ -1,3 +1,8 @@
+*
+!.gitignore
+
+**/build/*
+
 *.[oa]
 *~
 *.pyc
@@ -6,6 +11,10 @@
 .#*
 .gdb*
 TAGS
+
+
+build/*
+!build/build.xml
 
 # Ignore application built output
 build
