@@ -1,7 +1,7 @@
+#include<UserButton.h>
+#include"MoteRx.h"
 #include<string.h>
 #include<stdio.h>
-#include"MsgT.h"
-
 
 module MoteRxC
 
@@ -52,15 +52,28 @@ implementation
 	    if(len == sizeof(MoteToMoteMsg_t))
 	    {
 	    	MoteToMoteMsg_t * incomingPacket = (MoteToMoteMsg_t*) payload;
-	    		    	
-	    uint8_t temp = incomingPacket -> Temp;
-		uint8_t hum = incomingPacket -> Hum;
-		uint8_t photo = incomingPacket -> Photo;
+	    	
+	    	//incomingPacket->NodeId == 2;
+	    	
+	    uint8_t data = incomingPacket->Data;
+		uint8_t data2 = incomingPacket->Data2;
 		uint8_t nodeId = incomingPacket->NodeId;
 	    	
-	    //printf("$%d *%d #%d\r\n",nodeId,data,data2);
-		printf("Node Id = %d Temperature = %d Humidity = %d Light Intensity = %d \r\n", nodeId,temp,hum,photo);
-
+	    	printf("$%d *%d #%d\r\n",nodeId,data,data2);
+		printf("Node Id = %d Temperature = %d Light Intensity = %d \r\n", nodeId,data,data2);
+	    	    	
+	    	if(data == 1)
+	    	{
+	    		call Leds.led1On();
+	    	  //  printf("Packet is %d\r\n",data);
+	    		
+	    	}
+	    	if(data ==0)
+	    	{
+	    		call Leds.led1Off();
+	    	  //  printf("Packet is %d\r\n",data);
+	    		
+	    	}	
 	    }
         return msg;
 	}
