@@ -66,6 +66,7 @@ implementation
         call Tempread.read();
         call Lightread.read() ;
         call Humread.read();
+        call Leds.led1Toggle();
 
        if(_radioBusy == FALSE)
 		{
@@ -90,6 +91,7 @@ implementation
 		if (result == SUCCESS)
 		{
 			temperature = (-39.60 + 0.01 * val);
+			call Leds.led2Toggle();
 		}
 		else
 		{
@@ -102,6 +104,7 @@ implementation
 		if (result == SUCCESS)
 		{
 			luminance = 2.5 *((val/4096.0) *6250.0);
+			call Leds.led2Toggle();
 		}
 		else
 		{
@@ -113,6 +116,7 @@ implementation
 	{
 		humidity = -4 + 0.0405*val + (-2.8 * pow(10,-6))*pow(val,2);
 		humidity_true = (temperature - 25) * (0.01 + 0.00008*val) + humidity;
+		call Leds.led2Toggle();
 	}
 
 	event void AMSend.sendDone(message_t *msg, error_t error)

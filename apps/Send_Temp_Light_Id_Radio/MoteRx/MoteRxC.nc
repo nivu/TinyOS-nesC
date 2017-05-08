@@ -58,11 +58,8 @@ implementation
 		uint8_t photo = incomingPacket -> Photo;
 		uint8_t nodeId = incomingPacket->NodeId;
 	    	
-	    //printf("$%d *%d #%d\r\n",nodeId,data,data2);
-		printf("Node Id = %d Temperature = %d Humidity = %d Light Intensity = %d \r\n", nodeId,temp,hum,photo);
-		if(hum < 20 || hum >60){
-		printf("****************Humidity %d is not normal at Node = %d \r\n",hum,nodeId);
-		}
+	    printf("$%d *%d #%d\r\n",nodeId,temp,hum);
+		//printf("Node Id = %d Temperature = %d Humidity = %d Light Intensity = %d \r\n", nodeId,temp,hum,photo);
 
 	    }
         return msg;
