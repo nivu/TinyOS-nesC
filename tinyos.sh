@@ -1,4 +1,4 @@
-sudo apt install openjdk-8-jdk gcc-msp430 nescc make automake autoconf build-essential python-pip
+sudo apt install openjdk-8-jdk gcc-msp430 nescc make automake autoconf build-essential python-pip git
 
 git clone https://github.com/tinyos/tinyos-main.git
 
